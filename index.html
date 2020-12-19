@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+@font-face{
+    font-family: sevensigments;
+    src: url("sevensigments.ttf");
+}
+.w3-input
+{
+width:238px;
+height:40px;
+line-height:40px;
+font-size:30px;
+cursor:none;
+padding-top:13px;
+padding-left:5px;
+padding-right:5px;
+text-align:right;
+direction:ltr;
+font-family:sevensigments;
+font-weight:bolder;
+box-shadow:0px 0px 5px black inset; 
+background-image:url('calscreen.png');
+background-size:100% 100%;
+background-position:center center;
+background-repeat:no-repeat;
+border-radius:3px;
+}
+.w3-card-1
+{
+width:55px;
+height:22px;
+float:left;
+line-height:22px; 
+font-size:11px;
+font-weight:900;
+background:white;
+display:inline-block;
+text-align:center;
+margin:3px;
+border-radius:10px;
+box-shadow:0px 0px 5px rgba(0,0,0,.1) inset;
+}
+.buttons
+{
+background:#00aaff;
+border-bottom:3px solid #3377bc;
+-webkit-transition:all ease-in-out .5s;
+}
+.buttons:hover
+{
+background:#3377bc;
+border-bottom:3px solid #00aaff; 
+-webkit-transform:scale(0.98);
+}
+.symbols
+{
+background:orange;
+border-bottom:3px solid darkorange;
+-webkit-transition:all ease-in-out .5s;
+}
+.symbols:hover
+{
+background:darkorange;
+border-bottom:3px solid orange;
+-webkit-transform:scale(0.98);
+}
+.clearbutton
+{
+width:177px;
+background:#ff6a6b;
+border-bottom:3px solid #fb3031;
+-webkit-transition:all ease-in-out .5s;
+}
+.clearbutton:hover
+{
+background:#fb3031;
+border-bottom:3px solid #ff6a6b;
+-webkit-transform:scale(0.98);
+}
+.fulllayout
+{
+width:265px;
+height:290px;
+background:-webkit-linear-gradient(top,#333333 50%,#000000);
+display:block;
+padding:10px;
+margin-left:20%;
+margin-top:20%;
+border-radius:12px;
+}
+.screenlayout
+{
+width:238px;
+height:30px;
+margin-bottom:10px;
+margin-left:3px;
+margin-bottom:20px;
+}
+.screenlayout font
+{
+color:teal;
+font-size:4px;
+font-weight:lighter;
+float:right;
+margin-top:-8px; 
+margin-right:5px;
+}
+</style>
+<body>
+
+<div class="fulllayout">
+<div class="screenlayout">
+<font>Designed by<a href="#" style="text-decoration:none;color:orange;font-weight:bolder;"> Krnm Sai krishna</a></font>
+<input type="text" id="z" class="w3-input" placeholder="888888888888888888888888" readonly />
+</div>
+<div class="buttonslayout">
+<div class="buttons w3-card-1" onclick="myfun(21)">sin</div>
+<div class="buttons w3-card-1" onclick="myfun(22)">cos</div>
+<div class="buttons w3-card-1" onclick="myfun(23)">tan</div>
+<div class="buttons w3-card-1 symbols" onclick="myfun(16)">(</div>
+<br/>
+<div class="buttons w3-card-1" onclick="myfun(20)">sqrt</div>
+<div class="buttons w3-card-1" onclick="myfun(24)">log</div>
+<div class="buttons w3-card-1" onclick="myfun(25)">expo</div>
+<div class="buttons w3-card-1 symbols" onclick="myfun(17)">)</div>
+<br/>
+<div class="buttons w3-card-1" onclick="myfun(26)">power</div>
+<div class="buttons w3-card-1" onclick="myfun(27)">percent</div>
+<div class="buttons w3-card-1" onclick="myfun(29)">del</div>
+<div class="buttons w3-card-1 symbols" onclick="myfun(19)">%</div>
+<br/>
+<div class="buttons w3-card-1" onclick="myfun(7)">7</div>
+<div class="buttons w3-card-1" onclick="myfun(8)">8</div>
+<div class="buttons w3-card-1" onclick="myfun(9)">9</div>
+<div class="buttons w3-card-1 symbols" onclick="myfun(12)">-</div>
+<br/>
+<div class="buttons w3-card-1" onclick="myfun(6)">6</div>
+<div class="buttons w3-card-1" onclick="myfun(5)">5</div>
+<div class="buttons w3-card-1" onclick="myfun(4)">4</div>
+<div class="buttons w3-card-1 symbols" onclick="myfun(13)">+</div>
+<br/>
+<div class="buttons w3-card-1" onclick="myfun(3)">3</div>
+<div class="buttons w3-card-1" onclick="myfun(2)">2</div>
+<div class="buttons w3-card-1" onclick="myfun(1)">1</div>
+<div class="buttons w3-card-1 symbols" onclick="myfun(14)">*</div>
+<br/>
+<div class="buttons w3-card-1" onclick="myfun(0)">0</div>
+<div class="buttons w3-card-1" onclick="myfun(10)">.</div>
+<div class="buttons w3-card-1" onclick="myfun(11)">=</div>
+<div class="buttons w3-card-1 symbols" onclick="myfun(15)">/</div>
+<br/>
+<div class="button w3-card-1 clearbutton" onclick="myfun(28)">clear</div>
+<div class="buttons w3-card-1 symbols" onclick="myfun(18)">^</div>
+</div>
+</div>
+
+
+
+
+
+
+<script>
+function myfun(x)
+{
+var z=document.getElementById("z");
+if(x>=0 && x<=9)
+{
+z.value+=x;
+}
+if (x==10){z.value+=".";}
+if (x==11){z.value=eval(z.value);}
+if (x==12){z.value+="-";}
+if (x==13){z.value+="+";}
+if (x==14){z.value+="*";}
+if (x==15){z.value+="/";}
+if (x==16){z.value+="(";}
+if (x==17){z.value+=")";}
+if(x==18){z.value+="^";}
+if(x==19){z.value+="%";}
+if (x==20){z.value=Math.sqrt(z.value);}
+if (x==21){z.value=Math.sin(z.value);}
+if (x==22){z.value=Math.cos(z.value);}
+if (x==23){z.value=Math.tan(z.value);}
+if (x==24){z.value=Math.log(z.value);}
+if (x==25){z.value=Math.exp(z.value);}
+if (x==26){
+var w=(z.value).split("^");
+z.value=Math.pow(w[0],w[1]);}
+if (x==27){
+var y=(z.value).split("%");
+z.value=eval(y[0]/(100/y[1]));}
+if (x==28){z.value="";}
+if (x==29)
+{z.value=(z.value).slice(0,((z.value).length-1));}
+
+};
+</script>
+
+</body>
+</html>
+
